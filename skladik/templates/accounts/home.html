@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+<html>
+	{% block head %}Home{% endblock %}
+	{% block body %}
+		{% if user.is_authenticated %}
+  			<div style="text-align:center">ЗДОРОВО {{ user.username }}! ЧО КАК?</div>
+  		<p><a href="{% url 'logout' %}">logout</a></p>
+		{% else %}
+  <p>Войдите в свою учетную запись</p>
+  <a href="{% url 'login' %}">Войти</a>
+{% endif %}
+{% endblock %}
+</html>
+
+
