@@ -38,3 +38,19 @@ class sklad_item(models.Model):
 
   def __str__(self):
   	return self.item
+
+class otpravka(models.Model):
+  item = models.ForeignKey(sklad_item, on_delete = models.CASCADE)
+  col_vo_item = models.IntegerField()
+  mesto_pribitiya = models.CharField(max_length=200)
+  zakazchik_name = models.CharField(max_length=200)
+  otpravka_date = models.DateTimeField()
+
+  def __str__(self):
+    return self.zakazchik_name
+
+
+
+
+
+
