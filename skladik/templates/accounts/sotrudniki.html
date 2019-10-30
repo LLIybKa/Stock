@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+<!-- <html> -->
+{% load static %}
+	{% block head %}Home{% endblock %}
+	{% block body %}
+		{% if user.is_authenticated %}
+
+  		<!-- 	<div style="text-align:center"> Я вас категорически приветствую {{ user.username }}!</div> -->
+  			<p></p>
+			<p></p>
+			<p></p>
+		<table class="table">
+			<thead class="thead-dark">
+				<tr>
+				<th scope="col">id</th>
+				<th scope="col">Имя сотрудника</th>	
+				<th scope="col">Фамилия сотрудника</th>
+				<th scope="col">Должность</th>
+				<th scope="col">Адрес</th>			
+				</tr>
+				</thead>
+			{% for employee in sotrudnik_otobr %}
+			<tr>
+				<td>{{ employee.id }}</td>
+				<td>{{ employee.sotrudnik_name }}</td>
+				<td>{{ employee.sotrudnik_lastname }}</td>
+				<td>{{ employee.position }}</td>
+				<td>{{ employee.adres }}</td>
+			</tr>
+
+			{% endfor %}
+			
+		</table>
+
+{% endif %}
+{% endblock %}

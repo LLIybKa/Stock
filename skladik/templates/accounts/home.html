@@ -1,15 +1,50 @@
 {% extends 'base.html' %}
-<html>
+<!-- <html> -->
+{% load static %}
 	{% block head %}Home{% endblock %}
 	{% block body %}
 		{% if user.is_authenticated %}
-  			<div style="text-align:center">ЗДОРОВО {{ user.username }}! ЧО КАК?</div>
-  		<p><a href="{% url 'logout' %}">logout</a></p>
-		{% else %}
-  <p>Войдите в свою учетную запись</p>
-  <a href="{% url 'login' %}">Войти</a>
+
+  		<!-- 	<div style="text-align:center"> Я вас категорически приветствую {{ user.username }}!</div> -->
+  			<p></p>
+			<p></p>
+			<p></p>
+			<div class="cont" style="height: 600px">
+						<table class="table">
+			<thead class="thead-dark">
+				<tr>
+				<th scope="col">id</th>
+				<th scope="col">Товар</th>
+				<th scope="col">Количество</th>
+				<th scope="col">Цена</th>
+				<th scope="col">Категория</th>
+				<th scope="col">Поставщик</th>
+				<th scope="col">пикча</th>
+				<th scope="col">Отправка</th>
+				
+				</tr>
+				</thead>
+			{% for sklad_item in sklad_item_otobr %}
+			<tr>
+				<td><a href="{% url 'detail' sklad_item.id%}">{{ sklad_item.id }}</a></td>
+				<td>{{ sklad_item.item }}</td>
+				<td>{{ sklad_item.col_vo_sklad }}</td>
+				<td>{{ sklad_item.price }}</td>
+				<td>{{ sklad_item.category }}</td>
+				<td>{{ sklad_item.postavka }}</td>
+				<td><img src="{{ sklad_item.cover.url}}" width="240px"></td>
+				<td><a href="{% url 'send' sklad_item.id%}">Отправить</a></td>
+			</tr>
+
+			{% endfor %}
+			
+		</table>
+
+			</div>
+
+
 {% endif %}
 {% endblock %}
-</html>
+<!-- </html> -->
 
 

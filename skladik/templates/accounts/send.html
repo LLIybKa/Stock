@@ -1,0 +1,30 @@
+<html>
+	<head>
+		{% block head %}
+			<title>{{ sklad_item.id }}</title>
+		{% endblock %}
+	</head>
+	<body>
+		{% block body %}
+			  <form method="POST" class="form">
+			  
+			  {% csrf_token %}
+			  
+			  	<!-- <input type="text" name="tovar_id" value="{{ sklad_item.item }}"> -->
+			  	{{ form.as_p }}
+			  	<button type="submit" class="save btn btn-default">Save</button>
+			</form>
+				<!-- <h1>{{ form.item }}</h1> -->
+
+			{% for otpravka in otpravka %}
+			<ul>
+				<li>otpravka.item: {{ otpravka.id }}</li>
+				<li>otpravka.item: {{ otpravka.item }}</li>
+				<li>otpravka.zakazchik_name: {{ otpravka.zakazchik_name }}</li>
+				<li>otpravka.col_vo_item:  {{ otpravka.col_vo_item }}</li>
+			</ul>
+				
+			{% endfor %}
+		{% endblock %}
+	</body>
+</html>

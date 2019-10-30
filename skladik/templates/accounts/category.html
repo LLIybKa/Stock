@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+<!-- <html> -->
+{% load static %}
+	{% block head %}Home{% endblock %}
+	{% block body %}
+		{% if user.is_authenticated %}
+
+  		<!-- 	<div style="text-align:center"> Я вас категорически приветствую {{ user.username }}!</div> -->
+  			<p></p>
+			<p></p>
+			<p></p>
+		<table class="table">
+			<thead class="thead-dark">
+				<tr>
+				<th scope="col">id</th>
+				<th scope="col">Имя категории</th>				
+				</tr>
+				</thead>
+			{% for categorya in categorya_otobr %}
+			<tr>
+				<td>{{ categorya.id }}</td>
+				<td>{{ categorya.category_name }}</td>
+			</tr>
+
+			{% endfor %}
+			
+		</table>
+
+{% endif %}
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+<!-- <html> -->
+{% load static %}
+	{% block head %}Home{% endblock %}
+	{% block body %}
+		{% if user.is_authenticated %}
+
+  		<!-- 	<div style="text-align:center"> Я вас категорически приветствую {{ user.username }}!</div> -->
+  			<p></p>
+			<p></p>
+			<p></p>
+		<table class="table">
+			<thead class="thead-dark">
+				<tr>
+				<th scope="col">id</th>
+				<th scope="col">Товар</th>
+				<th scope="col">Количество</th>
+				<th scope="col">Место прибытия</th>
+				<th scope="col">Имя заказчика</th>
+				<th scope="col">Дата отправки</th>								
+				</tr>
+				</thead>
+			{% for otpravka in otpravka_otobr %}
+			<tr>
+				<td>{{ otpravka.id }}</td>
+				<td>{{ otpravka.item }}</td>
+				<td>{{ otpravka.col_vo_item }}</td>
+				<td>{{ otpravka.mesto_pribitiya }}</td>
+				<td>{{ otpravka.zakazchik_name }}</td>
+				<td>{{ otpravka.otpravka_date }}</td>
+			</tr>
+
+			{% endfor %}
+			
+		</table>
+
+{% endif %}
+{% endblock %}

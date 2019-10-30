@@ -35,7 +35,7 @@ class sklad_item(models.Model):
   category = models.ForeignKey(categorya, on_delete = models.CASCADE)
   employee = models.ForeignKey(employee, on_delete = models.CASCADE)
   postavka = models.ForeignKey(postavka, on_delete = models.CASCADE)
-
+  cover = models.FileField(null = True ,blank = True)
   def __str__(self):
   	return self.item
 
@@ -48,6 +48,7 @@ class otpravka(models.Model):
 
   def __str__(self):
     return self.zakazchik_name
+
 
 
 
